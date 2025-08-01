@@ -245,6 +245,6 @@ open class ZoomLayout private constructor(
 
     override fun onInterceptHoverEvent(event: MotionEvent?): Boolean {
         parent.requestDisallowInterceptTouchEvent(true)
-        return super.onInterceptHoverEvent(event)
+        return true
     }
 }
