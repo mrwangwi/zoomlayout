@@ -137,6 +137,7 @@ open class ZoomLayout private constructor(
     }
 
     override fun onInterceptTouchEvent(ev: MotionEvent): Boolean {
+        parent.requestDisallowInterceptTouchEvent(true)
         return engine.onInterceptTouchEvent(ev) || hasClickableChildren && super.onInterceptTouchEvent(ev)
     }
 
@@ -241,10 +242,5 @@ open class ZoomLayout private constructor(
 
     interface EndListener{
         fun end()
-    }
-
-    override fun onInterceptHoverEvent(event: MotionEvent?): Boolean {
-        parent.requestDisallowInterceptTouchEvent(true)
-        return true
     }
 }
